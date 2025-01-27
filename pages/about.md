@@ -1,18 +1,19 @@
 ---
 layout: page
 title: About
-description: 打码改变世界
-keywords: Zhuang Ma, 马壮
+description: about页面
+keywords: ICCI, 博客
 comments: true
 menu: 关于
 permalink: /about/
 ---
 
-我是马壮，码而生，码而立。
+写下过去 不忘来时路
 
-仰慕「优雅编码的艺术」。
+写在当下 重整再出发
 
-坚信熟能生巧，努力改变人生。
+写给未来 who care？
+    ----2025.1.17
 
 ## 联系
 

@@ -1,23 +1,19 @@
 ---
 layout: post
-title: 第一个博客
-categories: blog
-description: 使用 VBA 将多个 Excel 文件里的数据汇总到一个 Excel 里。
-keywords: 测试, bolg
+title: 第一篇博客
+categories: Fiddler
+description: 测试搭建的环境是否正常
+keywords: Fiddler
 ---
-## 需求
+### 需求
 
 测试一下博客能否正常运行
-
-
 
 ### 需求
 
 对 Fiddler 抓取的某个特定 SESSION 能在必要时手动操作发往另一个服务器。
 
-### 设想
-
-在 SESSION 上点击右键弹出的菜单中添加一项，让它对应的响应事件来完成此操作。而联想到 Fiddler 的 Composer 功能能够将某条 SESSION 按自己的需要修改后重新发出，那利用 Composer 来做应该是比较容易实现且便捷的方式。
+### 设想在 SESSION 上点击右键弹出的菜单中添加一项，让它对应的响应事件来完成此操作。而联想到 Fiddler 的 Composer 功能能够将某条 SESSION 按自己的需要修改后重新发出，那利用 Composer 来做应该是比较容易实现且便捷的方式。
 
 ### 实现
 

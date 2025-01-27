@@ -1,19 +1,24 @@
-- name: Software Engineer Keywords
+- name: Electrical Engineer Keyboards
   keywords:
-      - Java
-      - C++
-      - Python
-      - Design Patterns
+      - PLC
+      - Matlab     
+      - 自控原理
 
-- name: Mobile Developer Keywords
+- name: Embedded Systems Engineer Keyboards
   keywords:
-      - Android
-      - Reverse Engineering
+      - C/C++
+      - STM32
+      - PCB layout
+      - 物联网
 
-- name: Windows Developer Keywords
+- name: Analog IC Designer Keyboards
   keywords:
-      - Win32 SDK
-      - DuiLib
-      - WTL
-      - COM
-      - WinDbg
+      - Candence
+      - ADC
+      - 拉扎维
+
+- name: Digital IC Designer Keyboards
+  keywords:
+      - VCS
+      - VHDL
+      - 数字信号处理

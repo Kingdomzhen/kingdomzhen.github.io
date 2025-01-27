@@ -1,12 +1,11 @@
 ---
 layout: wiki
-title: JSON
-cate1: Android
+title: 拉扎维
+cate1: 模拟IC
 cate2:
-description: JSON
-keywords: Android
+description: 拉扎维
+keywords: 拉扎维
 ---
-
 ## gson
 
 ## FastJson
@@ -16,7 +15,7 @@ keywords: Android
 如果往一个 List 里多次添加了同一对象，在 `JSON.toJSONString` 时默认会被转换成这样：
 
 ```json
-[
+
     {
         "k1": "v1",
         "k2": []
@@ -38,7 +37,7 @@ keywords: Android
 
 我这里因为是误操作才往 List 里多次添加的，所以解决误操作就好了。
 
-至于确实是真实意图的情况（可能一般前端才有？），可以参考 <http://blog.csdn.net/Singleton1900/article/details/50435247> 解决。
+至于确实是真实意图的情况（可能一般前端才有？），可以参考 [http://blog.csdn.net/Singleton1900/article/details/50435247](http://blog.csdn.net/Singleton1900/article/details/50435247) 解决。
 
 ### boolean 的序列化字段命名
 
@@ -61,11 +60,9 @@ public class Test {
 有几种方法可以解决：
 
 1. 将字段名改为 test（符合 Java Bean）
-
 2. 为字段名加上注解，标示它序列化的名字为 `isTest`
-
 3. 使用 Gson
 
 FastJson 项目里相关的讨论 Issue 如下：
 
-<https://github.com/alibaba/fastjson/issues/278>
+[https://github.com/alibaba/fastjson/issues/278](https://github.com/alibaba/fastjson/issues/278)
