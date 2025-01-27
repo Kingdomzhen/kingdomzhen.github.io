@@ -5,9 +5,9 @@ baseurl:
 url: https://kingdomzhen.wang
 date_format: "ordinal"
 title: KINGDOM·ZHEN
-subtitle: "小王"
-description: "马壮的个人博客，公众号：闷骚的程序员"
-keywords: 码志, Zhuang Ma, mzlogin, mazhuang, 闷骚的程序员
+subtitle: "ICCI"
+description: "正经人谁写日记"
+keywords: kingdomzhen, ICCI, 博客, IC门外汉
 timezone: Asia/Shanghai
 encoding: "utf-8"
 # 页面左下角显示的年份
@@ -57,12 +57,12 @@ highlight_theme: github
 # ---------------- #
 #      Author      #
 # ---------------- #
-author: Zhuang Ma
+author: Kingdmzhen
 organization: 
 organization_url: 
-github_username: mzlogin
-location: Wuhan, China
-email: chumpma@gmail.com
+github_username: kingdomzhen
+location: Shanghai, China
+email: kingdomzhen1@gmail.com
 
 # ---------------- #
 #    Navigation    #
