@@ -168,14 +168,14 @@ gitment:
     owner: kingdomzhen
     repo: blog-comments
     oauth:
-        client_id: Ov23liSNd1SjS6UNqGuA
-        client_secret: b058d289ec04831ca31247815f9829a2e67104fb
+        client_id: Ov23litFVrzl4qdzwYBb
+        client_secret: 59a1bbcb313c92455e903c1a4a021ce7eb296ab6
 # gitalk 配置参考：https://github.com/gitalk/gitalk#install
 gitalk:
     owner: kingdomzhen
     repo: blog-comments
-    clientID: Ov23liSNd1SjS6UNqGuA
-    clientSecret: b058d289ec04831ca31247815f9829a2e67104fb
+    clientID: Ov23litFVrzl4qdzwYBb
+    clientSecret: 59a1bbcb313c92455e903c1a4a021ce7eb296ab6
 # utterances 配置参考：https://utteranc.es/
 utterances:
     repo: kingdomzhen/blog-comments
