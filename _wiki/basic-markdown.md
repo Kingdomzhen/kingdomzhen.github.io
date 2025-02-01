@@ -1,10 +1,10 @@
 ---
 layout: wiki
-title: 博客格式
-cate1: blog
+title: markdowm 语法格式
+cate1: 基础技能
 cate2:
 description: blog
-keywords: blog
+keywords: 基础技能，markdown
 ---
 
 # ![Markdown Intro](./assets/title.png)
