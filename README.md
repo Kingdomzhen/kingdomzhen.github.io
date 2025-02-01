@@ -14,4 +14,4 @@
 * images 文件夹中是我的文章和页面里使用的图片。
 
 特别鸣谢
-本博客是基于https://github.com/mzlogin/mzlogin.github.io完成的
+本博客是基于https://github.com/mzlogin/mzlogin.github.io 完成的
