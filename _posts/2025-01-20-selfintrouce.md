@@ -34,3 +34,8 @@ flow: true
 ### 博客更新
 
 目前博客刚刚搭建，理想的状态是周更，利用周末把这周看到的学到的更新一下
+
+
+## 微信打赏作者 / Wechat
+
+<img style="width:256px;border:1px solid lightgrey;" src="{{ assets_base_url }}/assets/images/receipt-code-wechat.jpeg" alt="wechat receipt code" />
