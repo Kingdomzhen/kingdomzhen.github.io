@@ -5,14 +5,15 @@ categories: [blog, life]
 description: 蛇年春节
 keywords: blog, 烟火人间
 ---
-
 ### 乙巳蛇年春节
 
-家乡的年味太浓了，连着几天晚上都没有睡好，
+家乡的年味太浓了，连着几天晚上都没有睡好，好在家人团聚其乐融融
 
-测试一下图片功能
-<div align="center"><img width="192px" height="192px" src="https://raw.githubusercontent.com/Kingdomzhen/blog-photo/main/photo/monkey.jpg"/></div>
+不知不觉中又度过了一个春节，这个年纪不尴不尬，处于发红包和收红包的边缘
 
-### 测试
-测试测试
+每次过年回家都是想着来年一定要发红包，可一回家就变成了小孩子反倒收了不少红包
+
+### 新年新气象
+
+新的一年需要更加静下心来沉淀沉淀
 

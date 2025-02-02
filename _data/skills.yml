@@ -1,23 +1,24 @@
-- name: Electrical Engineer Keyboards
+- name: Electrical Engineer
   keywords:
       - PLC
       - Matlab     
       - 自控原理
 
-- name: Embedded Systems Engineer Keyboards
+- name: Embedded Engineer
   keywords:
       - C/C++
       - STM32
       - PCB layout
       - 物联网
 
-- name: Analog IC Designer Keyboards
+- name: Analog IC
   keywords:
       - Candence
       - ADC
       - 拉扎维
+      - 模集
 
-- name: Digital IC Designer Keyboards
+- name: Digital IC
   keywords:
       - VCS
       - VHDL

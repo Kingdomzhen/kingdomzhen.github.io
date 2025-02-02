@@ -7,31 +7,12 @@ comments: true
 menu: 关于
 permalink: /about/
 ---
+## 作者声明
+作者目前是某在读研究生身份，个人水平有限，精力也有限，此博客所以资料都是在网上整理总结出来的，毫无原创可言，观点也并非十分不准确，甚至错别字常有。但我喜欢学习新的技术，非常欢迎大家一起留言探讨技术，或是给我发email共同完善构建这个知识库。
 
-写下过去 不忘来时路
-
-写在当下 重整再出发
-
-写给未来 who care？
-    ----2025.1.17
-
-
-
-
-## 联系
-
-<ul>
-{% for website in site.data.social %}
-<li>{{website.sitename }}：<a href="{{ website.url }}" target="_blank">@{{ website.name }}</a></li>
-{% endfor %}
-{% if site.url contains 'mazhuang.org' %}
-<li>
-微信公众号：<br />
-<img style="height:192px;width:192px;border:1px solid lightgrey;" src="{{ site.url }}/assets/images/qrcode.jpg" alt="闷骚的程序员" />
-</li>
-{% endif %}
-</ul>
-
+以下是我的技术栈，我将适当整理，逐步开源
+如有侵权，请联系作者删帖  
+***联系作者：***  kingdomzhen1@gmail.com
 
 ## Skill Keywords
 
