@@ -1,7 +1,7 @@
 ---
 layout: post
 title: markdowm 语法格式(一)
-categories: [rkdown, basic]
+categories: [markdown, basic]
 description: markdown语言基础
 keywords: blog，markdown
 ---

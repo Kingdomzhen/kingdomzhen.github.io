@@ -13,3 +13,5 @@ Markdown语法进阶
 测试一下图片功能
 
 <div align="center"><imgwidth="192px"height="192px"src="https://raw.githubusercontent.com/Kingdomzhen/blog-photo/main/photo/monkey.jpg"/></div>
+
+![1738754688037](image/2025-02-04-basic-markdown/1738754688037.png)
