@@ -1,17 +1,17 @@
 ---
 layout: post
-title: 博客介绍
+title: 博客阅读指南
 categories: blog
 description: 关于博客写点啥
 keywords: blog
 topmost: true
 flow: true
 ---
+关于这个博客的初衷
 
 ### 博客介绍
 
 为了让大家有更好的博客阅读体验，在这里介绍这个博客的大致规划
-
 
 ### 作者介绍
 
@@ -20,7 +20,7 @@ flow: true
 ### 博客内容
 
 博客写点什么内容好？
-
+读书分享、生活感悟、技术博客等等
 想写的东西太多，奈何精力有限，都写下来博客就成流水账了，没什么观感了。
 本博客计划先挖坑，再填坑
 也就是先把想写的东西先做个框架，后续不断完善的方式来优化
@@ -35,10 +35,10 @@ flow: true
 
 目前博客刚刚搭建，理想的状态是周更，利用周末把这周看到的学到的更新一下
 
-
 ## 微信打赏作者 / Wechat
 
-<img style="width:256px;border:1px solid lightgrey;" src="{{ assets_base_url }}/assets/images/receipt-code-wechat.jpeg" alt="wechat receipt code" />
+`<img style="width:256px;border:1px solid lightgrey;" src="{{ assets_base_url }}/assets/images/receipt-code-wechat.jpeg" alt="wechat receipt code" />`
 
 ### 阅读建议
+
 部分图片存放在github上面，加载过程可能有点慢

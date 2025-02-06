@@ -1,15 +1,15 @@
 ---
 layout: wiki
-title: Wiki
+title: Mindmap
 description: 人越学越觉得自己无知
-keywords: 维基, Wiki
+keywords: 维基, Mindmap
 comments: false
 copyright: false
-menu: 维基
-permalink: /wiki/
+menu: 脑图
+permalink: /mindmap/
 ---
 
-> 个人技术栈百科全书
+> 技术栈脑图
 
 {% case site.components.wiki.view %}
 
