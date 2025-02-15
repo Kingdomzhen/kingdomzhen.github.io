@@ -10,8 +10,7 @@ flow: true
 关于这个博客的初衷
 
 ### 博客介绍
-
-为了让大家有更好的博客阅读体验，在这里介绍这个博客的大致规划
+很早就萌发了写博客的想法，在2020年左右创立经营过一些自媒体账号，但当时的水平有限，写出来的东西没几个人看，更没有读者的反馈，默默的创作了一段时间待激情消退后便停更了。这些年得益于互联网的开源精神，我在互联网上学会了很多东西，现今打算重开博客，写点东西反哺互联网  
 
 ### 作者介绍
 
@@ -31,14 +30,18 @@ flow: true
 2. 写读书笔记，这个更新的太慢，因为我太懒了看书的进度太慢
 3. 写软件教程，这个是最简单的，但是我不知道哪些能写哪些不能写-->
 
-### 博客更新
+### 关于更新
 
 目前博客刚刚搭建，理想的状态是周更，利用周末把这周看到的学到的更新一下
 
 ## 微信打赏作者 / Wechat
 
-<img style="width:256px;border:1px solid lightgrey;" src="{{ assets_base_url }}/assets/images/receipt-code-wechat.jpeg" alt="wechat receipt code" />
+<img style="width:256px;border:1px solid lightgrey;" src="{{ assets_base_url }}/assets/images/receipt-code-wechat.jpeg" alt="wechat receipt code" />  
+没有中间商，直接鞭策作者创作~
 
-### 阅读建议
+### 作者声明
 
-部分图片存放在github上面，加载过程可能有点慢
+部分图片存放在github上面，加载过程可能有点慢  
+*我不生产知识，我只是知识的搬运工*  
+**如涉及版权问题，请立即联系作者更正！！！**    
+**Gmail:**  kingdomzhen1@gmail.com

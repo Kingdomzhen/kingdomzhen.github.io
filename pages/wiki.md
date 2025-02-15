@@ -9,7 +9,7 @@ menu: 脑图
 permalink: /mindmap/
 ---
 
-> 技术栈脑图
+> 知识的框架，这里挖了一个巨大的坑
 
 {% case site.components.wiki.view %}
 
