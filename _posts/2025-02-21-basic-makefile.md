@@ -13,20 +13,20 @@ makefike可以把一大串Linux 指令封装成独立的命令执行，在需要
 
 ## makefile 使用方法
 makefile在linux中直接以makefile形式存在，在使用时，直接在终端输入命令  
-~~~
+~~~Shell
 make <command>
 ~~~
 例如：下面是一段markdowm文件的源代码
-~~~
+~~~Shell
 test:
         @echo "hello test"
 ~~~
 要执行这个makefile的需要在终端下的操作如下：
-~~~
+~~~Shell
 [user]$ make test
 ~~~
 输入这段命令后，终端会打印出`hello test`字样，此时的终端将会变成
-~~~
+~~~Shell
 [user]$ make test
 hello test
 ~~~
@@ -34,7 +34,7 @@ hello test
 
 ## makefile 文件格式
 Makefile基本格式如下:
-~~~
+~~~Shell
 target ... : prerequisites ...
     command
     ...
@@ -54,7 +54,7 @@ command       - make需要执行的命令 (任意的shell命令), Makefile中的
 注释     :: Makefile只有行注释 "#", 如果要使用或者输出"#"字符, 需要进行转义, "\#"  
 
 ## makefile 经典实例
-~~~
+```Shell
 objects = main.o kbd.o command.o display.o \
 		insert.o search.o files.o utils.o
 
@@ -78,7 +78,7 @@ utils.o : utils.c defs.h
 	cc -c utils.c
 clean :
 	rm edit $(objects)
-~~~
+```
 在这个例子里，我们可以知道，maefile可以添加外部文件，一个makefile文件里可以添加多个不同的命令
 
 

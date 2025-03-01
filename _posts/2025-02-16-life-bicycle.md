@@ -9,7 +9,7 @@ keywords: blog, life
 
 
 元宵节后，来到了上海，天气开始逐渐变暖，我想的第一件事情是解决上下班的通勤问题，于是有了下面的自行车的故事
-<div align="center"><img width="192" height="250" src="https://gitee.com/kingdomzhen/blog-photo/raw/main/photo/2025年的休闲车.jpg"/>
+<div align="center"><img width="192" height="250" src="{{ assets_base_url }}/images/blog/2025年的休闲车.jpg"/>
 <p>变速休闲车</p>
 </div>
 
@@ -19,7 +19,7 @@ keywords: blog, life
 
 
 ## 为选择休闲车
-<div align="center"><img width="192" height="250" src="https://gitee.com/kingdomzhen/blog-photo/raw/main/photo/2022年的山地车.jpg"/>
+<div align="center"><img width="192" height="250" src="{{ assets_base_url }}/images/blog/2022年的山地车.jpg"/>
 <p>2022年骑过的山地车</p>
 </div>
 在买车的思考里，我有想过买个面包车直接睡在面包车里面，可这里是大上海，停车到处都收费，一年下来停车费可能比面包车还贵不少。电瓶车也想过，电瓶车是能解决我的上下班需求，但是电瓶车的充电很麻烦，而且电瓶车的电瓶是个问题，电瓶得保养，以及电瓶的安全问题，会不会被偷等等都是需要思考的问题。我比较懒，所有就选择买一辆自行车。
@@ -30,7 +30,7 @@ keywords: blog, life
 在小红书平台，我搜索了一下二手自行车关键字，机缘巧合之下与一位14岁的小伙子对上了暗号。当然，我刚开始是不知道他多少岁的，直到深入砍价环节，我开始和他聊了点其他的，问了问工作年龄之类的，试图寻找砍价的突破点。也正是这样，我知道了他14岁，喜欢骑行，是一个公交迷，收集了很多地方的公交卡，坐火车到过很多地方拍公交车的照片。**重点是他才14岁!** 想想我14岁连火车都没坐过，他这14岁这确实有点震撼了。车的细节我就没过多盘问，选择相信他，他正好有空，于是在元宵节他骑着车从浦西骑到浦东，骑到我公司楼下，骑了1个多小时，我就这样获得了一辆休闲自行车，到手我才发现这辆自行车居然带有变速的功能，这太行了！
 
 ## 买车后的体验
-<div align="center"><img width="300" height="300" src="https://gitee.com/kingdomzhen/blog-photo/raw/main/photo/第一次骑行体验.jpg"/>
+<div align="center"><img width="300" height="300" src="{{ assets_base_url }}/images/blog/第一次骑行体验.jpg"/>
 <p>10公里骑行体验</p>
 </div>
 收到车的这几天本来天气预报是有雨的，但是出奇的奇怪，都是阴天没有下雨，所有我上下班骑了骑这车，确实很可以。
