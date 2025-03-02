@@ -9,7 +9,7 @@ keywords: blog, life
 
 
 元宵节后，来到了上海，天气开始逐渐变暖，我想的第一件事情是解决上下班的通勤问题，于是有了下面的自行车的故事
-<div align="center"><img width="192" height="250" src="{{ assets_base_url }}/images/blog/2025年的休闲车.jpg"/>
+<div align="center"><img width="auto" height="auto" src="{{ assets_base_url }}/images/blog/2025年的休闲车.jpg"/>
 <p>变速休闲车</p>
 </div>
 
@@ -19,7 +19,7 @@ keywords: blog, life
 
 
 ## 为选择自行车
-<div align="center"><img width="192" height="250" src="{{ assets_base_url }}/images/blog/2022年的山地车.jpg"/>
+<div align="center"><img width="auto" height="auto" src="{{ assets_base_url }}/images/blog/2022年的山地车.jpg"/>
 <p>2022年骑过的山地车</p>
 </div>
 电动车要充电  
@@ -34,7 +34,7 @@ keywords: blog, life
 **重点是他才14岁!** 有点震撼了，本来想找找车的毛病再砍砍价的，着还未成年实在于心不忍。车的细节我就没过多盘问，选择相信他，他正好有空，于是在元宵节他骑着车从浦西骑到浦东，骑到我公司楼下，骑了1个多小时，我就这样获得了一辆休闲自行车，到手我才发现这辆自行车居然带有变速的功能，这太行了！
 
 ## 买车后的体验
-<div align="center"><img width="300" height="300" src="{{ assets_base_url }}/images/blog/第一次骑行体验.jpg"/>
+<div align="center"><img width="auto" height="auto" src="{{ assets_base_url }}/images/blog/第一次骑行体验.jpg"/>
 <p>10公里骑行体验</p>
 </div>
 收到车的这几天本来天气预报是有雨的，但是出奇的奇怪，都是阴天没有下雨，所有我上下班骑了骑这车，确实很可以。

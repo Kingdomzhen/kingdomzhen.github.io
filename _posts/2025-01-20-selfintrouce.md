@@ -20,7 +20,7 @@ flow: true
 
 ## 微信打赏作者 / Wechat
 
-<img style="width:256px;border:1px solid lightgrey;" src="{{ assets_base_url }}/assets/images/receipt-code-wechat.jpeg" alt="wechat receipt code" />  
+<img style="width:auto;border:auto solid lightgrey;" src="{{ assets_base_url }}/assets/images/receipt-code-wechat.jpeg" alt="wechat receipt code" />  
 没有中间商，直接鞭策作者创作~
 
 ### 作者声明

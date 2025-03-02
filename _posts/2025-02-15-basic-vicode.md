@@ -63,7 +63,7 @@ Vi 是 1976 年由 Bill Joy 开发的一款文本编辑器，最初是为 Unix �
 **命令模式、输入模式、底线命令模式**  
 也有称呼 命令模式（Command Mode）、输入模式（Insert Mode）和命令行模式（Command-Line Mode）  
 记住区分命令模式和命令行模式的界面就🆗了。这三种模式可以相互转换，下图为转换的操作示意图  
-<div align="center"><img width="690" height="480" src="{{ assets_base_url }}/images/blog/vim-vi-workmodel.png"/>
+<div align="center"><img width="auto" height="auto" src="{{ assets_base_url }}/images/blog/vim-vi-workmodel.png"/>
 <p>vi编辑器的三种模式</p>
 </div>  
 在终端界面输入 vi filename 进入vi 编辑器界面，默认是命令界面

@@ -9,7 +9,7 @@ makefike 学习笔记
 
 makefike可以把一大串Linux 指令封装成独立的命令执行，在需要处理复杂任务时，可以把命令编辑到makefile文件里，然后简单的命令就可以执行复杂的操作了，化繁为简，大大提高code效率。
 
-![makefile 文件](https://raw.githubusercontent.com/Kingdomzhen/blog-photo/main/photo/makefile.png){: width="400" height="192" style="display:block;margin:auto;"}
+![makefile 文件](https://raw.githubusercontent.com/Kingdomzhen/blog-photo/main/photo/makefile.png){: width="auto" height="auto" style="display:block;margin:auto;"}
 
 ## makefile 使用方法
 makefile在linux中直接以makefile形式存在，在使用时，直接在终端输入命令  
