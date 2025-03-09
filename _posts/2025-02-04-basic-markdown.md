@@ -37,7 +37,10 @@ markdown语言的语法参考，此篇笔记的所有语法在此博客中均已
 
 * TOC
 {:toc}
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 ---
 
 ## 补充

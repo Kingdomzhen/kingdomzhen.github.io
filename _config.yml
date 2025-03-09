@@ -5,7 +5,7 @@ baseurl:
 url: https://kingdomzhen.wang
 date_format: "ordinal"
 title: KINGDOM·ZHEN
-subtitle: "雕刻沙砾，偶然唤醒硅基生命"
+subtitle: "正是玩沙子的好年华"
 description: "正经人谁写日记"
 keywords: kingdomzhen, ICCI, 博客, IC门外汉
 timezone: Asia/Shanghai
@@ -52,7 +52,7 @@ compress_html:
   clippings: all
   comments: ["<!--", "-->"]
 # 代码高亮风格，支持的 theme 列表见 https://github.com/mzlogin/rouge-themes
-highlight_theme: base16
+highlight_theme: github
 
 # ---------------- #
 #      Author      #
