@@ -2,6 +2,7 @@
 #   Main Configs   #
 # ---------------- #
 baseurl:
+url: https://kingdomzhen.wang
 url: https://icci.ink
 date_format: "ordinal"
 title: ICCI
