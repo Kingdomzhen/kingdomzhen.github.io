@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 马斯洛需求层次理论模型
-categories: [life,马斯洛需求层次理论模型]
+categories: [life,心理学]
 description: 博客
 keywords: math
 mathjax: true
