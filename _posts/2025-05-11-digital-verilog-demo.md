@@ -110,10 +110,18 @@ endmodule
 ~~~
 
 
-## verilog的使用场景
+## verilog有什么用
 
+<div align="center"><img width="auto" height="auto" src="{{ assets_base_url }}/images/blog/2025-5数字芯片设计流程.png
+"/>
+<p>数字芯片设计流程</p>
+</div>  
 
 
 ## 参考资料
+[verilog wiki](https://en.wikipedia.org/wiki/Verilog)  
 [verilog语言同类](https://blog.csdn.net/u011729865/article/details/119376935)  
 [verilog和VHDL的区别](https://www.cnblogs.com/Colin-Cai/p/8547099.html)  
+[数字IC基本设计流程](https://blog.csdn.net/Tranquil_ovo/article/details/129902653)  
+[verilog 验证](https://www.chipverify.com/)  
+[Verilog Tutorial](https://www.asic-world.com/verilog/veritut.html)  

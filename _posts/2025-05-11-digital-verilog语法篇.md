@@ -52,10 +52,79 @@ z 或 Z：高阻
 * x 意味着信号数值的不确定，即在实际电路里，信号可能为 1，也可能为 0。  
 * z 意味着信号处于高阻状态，常见于信号（input, reg）没有驱动时的逻辑结果。例如一个 pad 的 input 呈现高阻状态时，其逻辑值和上下拉的状态有关系。上拉则逻辑值为 1，下拉则为 0 。  
 
+
+数字声明时，合法的基数格式有 4 中，包括：十进制('d 或 'D)，十六进制('h 或 'H)，二进制（'b 或 'B），八进制（'o 或 'O）。数值可指明位宽，也可不指明位宽。
+
+~~~ 
+//指明位宽
+4'b1011         // 4bit 数值
+32'h3022_c0de   // 32bit 的数值
+
+//不指明位宽
+counter = 'd100 ; //一般会根据编译器自动分频位宽，常见的为32bit
+counter = 100 ;
+counter = 32'h64 ;
+
+//负数
+-6'd15  
+-15
+
+
+//实数
+30.123
+6.0
+0.001
+
+//科学计数法
+1.2e4         //大小为12000
+1_0001e4      //大小为100010000
+1E-3          //大小为0.001
+
+//字符串
+reg [0: 14*8-1]       str ;
+initial begin
+    str = "www.runoob.com";
+end
+~~~
+
 ## 运算符
+### 运算符分类
+Verilog运算符及表达式  
+1.算数运算符：加、减、乘、除、取余（+、-、*、/、%）；  
+2.赋值运算符：非阻塞赋值、阻塞赋值（=、<=）；  
+3.关系运算符：大于、小于、等于、不等于、大于等于、小于等于（>、<、==、!=、>=、<=）；  
+4.逻辑运算符：与、或、非（&&、||、!）；  
+5.条件运算符：（？:）；  
+6.位运算符 ：（~、|、^、&、^~）；  
+7.移位运算符：循环左移、循环右移（<<、>>）；  
+8.拼接运算符：位拼接（{}）；  
+
+### 运算符优先级
+
+| 运算符       | 优先级       |
+|--------------|--------------|
+| ! ~          | 最高优先级   |
+| * / %        | 次高         |
+| + -          | 高           |
+| << >>        |              |
+| < < > >      |              |
+| !            |              |
+| &            |              |
+| ~            |              |
+| &&           | 低           |
+| \|\|         | 次低         |
+| ?:           | 最低优先级   |
+
+运算符优先级表格
 
 ## 过程控制
+initial， always语句来控制。
 
+- initial 在程序启动的时候运行，只运行一次一次（初始化）
+
+- always 在触发指定条件后执行，可多次执行，always 语句多用于仿真时钟的产生，信号行为的检测等
+
+每一个执行的代码块都是单独独立运行的；多个initial、always程序块可以同时进行。（verilog程序是并行的）
 
 ## 时序控制
 Verilog 提供了 2 大类时序控制方法：时延控制和事件控制。事件控制主要分为边沿触发事件控制与电平敏感事件控制
@@ -122,9 +191,64 @@ always @(*) begin
 ## 函数
 verilog语言也可以想C语言一样将一段功能的代码封装成函数的形式，在主程序种调用即可，减少主程序代码的繁杂，可以把精力更多的放在写程序的逻辑上面去。
 
+函数只能在模块中定义，位置任意，并在模块的任何地方引用，作用范围也局限于此模块。函数主要有以下几个特点：
+
+1）不含有任何延迟、时序或时序控制逻辑  
+2）至少有一个输入变量  
+3）只有一个返回值，且没有输出  
+4）不含有非阻塞赋值语句  
+5）函数可以调用其他函数，但是不能调用任务  
+Verilog 函数声明格式如下：
+
+~~~
+function [range-1:0]     function_id ;
+input_declaration ;
+ other_declaration ;
+procedural_statement ;
+endfunction
+~~~
+
+* 实例
+~~~
+wire [31:0]          results3 = factorial(4);
+function automatic   integer         factorial ;
+    input integer     data ;
+    integer           i ;
+    begin
+        factorial = (data>=2)? data * factorial(data-1) : 1 ;
+    end
+endfunction // factorial
+~~~
+
+* 注意局部变量和全局变量
 
 ## 任务
-将一段代码块封装成一个task，和函数的功能类似，更多的是应用于verilog 测试的代码里面（testbench）。
+将一段代码块封装成一个task，和函数的功能类似，更多的是应用于verilog 测试的代码里面（testbench）。  
+---
+
+任务在模块中任意位置定义，并在模块内任意位置引用，作用范围也局限于此模块。模块内子程序出现下面任意一个条件时，则必须使用任务而不能使用函数。
+
+1）子程序中包含时序控制逻辑，例如延迟，事件控制等  
+2）没有输入变量  
+3）没有输出或输出端的数量大于 1  
+Verilog 任务声明格式如下：
+~~~
+task       task_id ;
+    port_declaration ;
+    procedural_statement ;
+endtask
+~~~
+
+* 实例
+~~~
+task xor_oper_iner（
+    input [N-1:0]   numa,
+    input [N-1:0]   numb,
+    output [N-1:0]  numco  ） ; 
+    #3  numco       = numa ^ numb ;
+endtask
+~~~
+
 
 
 ## 参考连接
@@ -132,3 +256,4 @@ verilog语言也可以想C语言一样将一段功能的代码封装成函数的
 [博客教程](https://www.cnblogs.com/mikewolf2002/p/10183032.html)  
 [中原大學電機系Verilog HDL](https://hom-wang.gitbooks.io/verilog-hdl/content/Chapter_01.html)  
 [中原大學電機系Verilog HDL](https://hom-wang.gitbooks.io/verilog-hdl/content/Chapter_01.html)  
+[常用Verilog 运算符及表达式](https://blog.csdn.net/weixin_42066160/article/details/121684069)  
