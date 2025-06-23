@@ -251,7 +251,7 @@ endtask
 
 
 
-## 参考连接
+## 参考链接
 [菜鸟语法](https://www.runoob.com/w3cnote/verilog-tutorial.html)  
 [博客教程](https://www.cnblogs.com/mikewolf2002/p/10183032.html)  
 [中原大學電機系Verilog HDL](https://hom-wang.gitbooks.io/verilog-hdl/content/Chapter_01.html)  

@@ -24,7 +24,7 @@ Linux 英文解释为 Linux is not Unix,Linux在计算机界的地位就不必�
 pwd
 ~~~
 2. 在这个位置新建一个名字为test的文件夹
-~~~Shell
+
 mkdir test
 ~~~
 3. 进入test文件夹
