@@ -17,11 +17,22 @@ mindmap2: true
 ```mindmap
 # 模拟IC
 ## 相关模块
+### 开关
+#### 传输门
+#### 栅压自举
 ### 运放
+#### 五管运放
+#### 折叠共源共栅运放
 ### 电源
+#### LDO
+#### bangap
+#### DCDC
 ### 比较器
 ### PLL
+### VOC
 ## 相关操作
 ### schematic
 ### layout
+### simulation
+### 建模
 ```
