@@ -1,0 +1,16 @@
+---
+categories:
+- reading
+date: '2025-10-10T00:00:00Z'
+description: 读书分享
+keywords: blog
+title: 局外人
+---
+读一下加缪的代表作品
+
+<div class="img-center"><img src="/images/blog/加缪.png"/>
+<p>局外人</p>
+</div>
+
+## 读后心得
+当代文艺青年比较喜欢的作家里面就有加缪；为了跟上时代潮流我也试着读了一下加缪的代表作品。
