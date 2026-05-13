@@ -1,4 +1,4 @@
-baseURL = "https://kingdomzhen.github.io/"
+baseURL = "https://icci.ink/"
 locale = "zh-cn"
 title = "ICCI"
 theme = "hugo-book-main"
