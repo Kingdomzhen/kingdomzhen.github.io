@@ -1,0 +1,57 @@
+{{ partial "docs/inject/toc-before" . }}
+<nav id="TableOfContents">
+  {{ .TableOfContents }}
+</nav>
+{{ partial "docs/inject/toc-after" . }}
+
+<script>
+  (function() {
+    var toc = document.getElementById('TableOfContents');
+    if (!toc) return;
+
+    // 递归标记层级并添加折叠按钮
+    function processLevel(ul, depth) {
+      if (!ul) return;
+      var lis = ul.children;
+      for (var i = 0; i < lis.length; i++) {
+        var li = lis[i];
+        if (li.tagName !== 'LI') continue;
+        li.classList.add('toc-level-' + depth);
+
+        var childUl = li.querySelector(':scope > ul');
+        if (childUl) {
+          var toggle = document.createElement('span');
+          toggle.className = 'toc-toggle';
+          toggle.innerHTML = '▾';
+          toggle.title = '展开/折叠';
+
+          var link = li.querySelector(':scope > a');
+          if (link) {
+            link.parentNode.insertBefore(toggle, link);
+          } else {
+            li.insertBefore(toggle, li.firstChild);
+          }
+
+          toggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            e.preventDefault();
+            var parentLi = this.parentNode;
+            var isOpen = parentLi.classList.toggle('toc-collapsed');
+            this.innerHTML = isOpen ? '▸' : '▾';
+          });
+
+          // H3 及更深层级默认折叠
+          if (depth >= 3) {
+            li.classList.add('toc-collapsed');
+            toggle.innerHTML = '▸';
+          }
+
+          processLevel(childUl, depth + 1);
+        }
+      }
+    }
+
+    var topUl = toc.querySelector(':scope > ul');
+    if (topUl) processLevel(topUl, 2);
+  })();
+</script>

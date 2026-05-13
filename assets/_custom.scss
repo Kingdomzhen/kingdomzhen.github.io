@@ -1,0 +1,524 @@
+// ============================================
+// 自定义主题 mixins（基于 theme-light / theme-dark 模式扩展）
+// ============================================
+
+// 护眼暖色主题 — 类似纸张的暖黄底色
+@mixin theme-sepia {
+  --body-background: #f4ecd8;
+  --body-background-tint: none;
+  --body-font-color: #4a3728;
+
+  --color-link: #8b5e3c;
+  --color-visited-link: #6b4e3d;
+
+  --icon-filter: none;
+
+  --gray-100: #ebe0cc;
+  --gray-200: #d6c9b3;
+  --gray-500: #a09080;
+
+  @include accent("default", #8b5e3c);
+  @include accent("note", #6b8b3c);
+  @include accent("tip", #5a8b5a);
+  @include accent("important", #8b5e3c);
+  @include accent("warning", #d4a243);
+  @include accent("caution", #c4553d);
+
+  @include accent("info", #6b8b3c);
+  @include accent("success", #5a8b5a);
+  @include accent("danger", #c4553d);
+}
+
+// 森林暗色主题 — 墨绿基调，适合夜间长时间阅读
+@mixin theme-forest {
+  --body-background: #1a2624;
+  --body-background-tint: none;
+  --body-font-color: #d8e6e3;
+
+  --color-link: #7eb8a0;
+  --color-visited-link: #9ab8a8;
+
+  --icon-filter: brightness(0) invert(1);
+
+  --gray-100: #243230;
+  --gray-200: #2e3e3b;
+  --gray-500: #a0b8b0;
+
+  @include accent("default", #7eb8a0);
+  @include accent("note", #6ba892);
+  @include accent("tip", #8bba8b);
+  @include accent("important", #9a9ac8);
+  @include accent("warning", #c8a862);
+  @include accent("caution", #c86b6b);
+
+  @include accent("info", #6ba892);
+  @include accent("success", #8bba8b);
+  @include accent("danger", #c86b6b);
+}
+
+// 深蓝暗色主题 — 比 Nord 更深沉，带蓝调
+@mixin theme-ocean {
+  --body-background: #1a2332;
+  --body-background-tint: none;
+  --body-font-color: #d6e0ec;
+
+  --color-link: #7ba5d4;
+  --color-visited-link: #9a8ec8;
+
+  --icon-filter: brightness(0) invert(1);
+
+  --gray-100: #243044;
+  --gray-200: #2e3c52;
+  --gray-500: #a0b0c8;
+
+  @include accent("default", #7ba5d4);
+  @include accent("note", #5b8dc8);
+  @include accent("tip", #7bb88b);
+  @include accent("important", #9a8ec8);
+  @include accent("warning", #d4a843);
+  @include accent("caution", #c86b6b);
+
+  @include accent("info", #5b8dc8);
+  @include accent("success", #7bb88b);
+  @include accent("danger", #c86b6b);
+}
+
+// ============================================
+// 手动主题覆盖：data-theme 映射
+// ============================================
+html[data-theme="light"] {
+  @include theme-light;
+}
+
+html[data-theme="dark"] {
+  @include theme-dark;
+}
+
+html[data-theme="sepia"] {
+  @include theme-sepia;
+}
+
+html[data-theme="forest"] {
+  @include theme-forest;
+}
+
+html[data-theme="ocean"] {
+  @include theme-ocean;
+}
+
+// 阅读进度条
+#reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+  z-index: 9999;
+  transition: width 0.1s ease;
+  border-radius: 0 2px 2px 0;
+}
+
+// 主题切换按钮
+.theme-toggle,
+.theme-toggle-brand {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px 6px;
+  margin-right: 8px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+  color: var(--body-font-color, inherit);
+  font-size: 0.75rem;
+  white-space: nowrap;
+
+  &:hover {
+    opacity: 1;
+    background: rgba(128, 128, 128, 0.15);
+  }
+}
+
+.theme-toggle-brand {
+  margin-left: auto;
+  padding: 3px 6px;
+}
+
+// 主题图标 — emoji 由 JS 动态更新
+.theme-icon {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.theme-label {
+  display: none;
+}
+
+// 在 brand 区域显示文字标签
+.theme-toggle-brand .theme-label {
+  display: inline;
+  font-size: 0.7rem;
+  opacity: 0.8;
+}
+
+// ============================================
+// 博客排版美化
+// ============================================
+
+// 文章图片居中 + 响应式
+.img-center {
+  text-align: center;
+  margin: 1.5rem 0;
+
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.3s;
+
+    &:hover {
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    }
+  }
+}
+
+// 所有 Markdown 图片也自动响应式
+.markdown img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  display: block;
+  margin: 1.25rem auto;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.06);
+}
+
+// 文章标题美化
+.markdown {
+  h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--gray-200);
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 1.75rem;
+    margin-bottom: 0.75rem;
+    padding-left: 0.75rem;
+    border-left: 4px solid #3b82f6;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  h4 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-top: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+// 段落间距
+.markdown p {
+  line-height: 1.8;
+  margin-bottom: 1rem;
+  text-align: justify;
+}
+
+// 列表美化
+.markdown ul,
+.markdown ol {
+  padding-left: 1.5rem;
+  line-height: 1.8;
+
+  li {
+    margin-bottom: 0.35rem;
+    padding-left: 0.25rem;
+  }
+}
+
+// 行内代码
+.markdown code:not(pre code) {
+  background: var(--gray-100);
+  color: #d84747;
+  padding: 0.15em 0.4em;
+  border-radius: 3px;
+  font-size: 0.9em;
+  font-weight: 500;
+}
+
+// 代码块美化
+.markdown pre {
+  border-radius: 8px;
+  margin: 1.25rem 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+// 引用块
+.markdown blockquote {
+  border-left: 4px solid #3b82f6;
+  background: var(--gray-100);
+  margin: 1.25rem 0;
+  padding: 0.75rem 1rem;
+  border-radius: 0 6px 6px 0;
+  color: var(--body-font-color);
+  opacity: 0.9;
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// 表格美化
+.markdown table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.25rem 0;
+  font-size: 0.95rem;
+
+  th {
+    background: var(--gray-100);
+    font-weight: 600;
+    padding: 0.6rem 0.75rem;
+    border: 1px solid var(--gray-200);
+  }
+
+  td {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--gray-200);
+  }
+
+  tr:nth-child(even) td {
+    background: rgba(128, 128, 128, 0.03);
+  }
+}
+
+// 水平分割线
+.markdown hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gray-500), transparent);
+  margin: 2rem 0;
+}
+
+// 首页美化
+.book-kind-home,
+.book-kind-section {
+  .markdown {
+    h1 {
+      font-size: 2.5rem;
+      text-align: center;
+      border-bottom: none;
+      margin-bottom: 1.5rem;
+    }
+
+    h2 {
+      border-left: none;
+      padding-left: 0;
+      margin-top: 2rem;
+    }
+  }
+}
+
+// 文章列表页美化（posts 列表）
+.book-kind-section {
+  .posts-list {
+    article {
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--gray-200);
+    }
+  }
+}
+
+// 分隔线
+.markdown hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--gray-500), transparent);
+  margin: 2rem 0;
+}
+
+// 加粗文本
+.markdown strong {
+  font-weight: 700;
+  color: inherit;
+}
+
+// 链接
+.markdown a {
+  color: var(--color-link);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+
+  &:hover {
+    border-bottom-color: var(--color-link);
+  }
+}
+
+// ============================================
+// 三级折叠目录
+// ============================================
+.book-toc {
+  font-size: 0.875rem;
+
+  nav {
+    padding-top: 0.5rem;
+  }
+
+  ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+  }
+
+  li {
+    margin: 0;
+    padding: 0;
+    position: relative;
+  }
+
+  a {
+    color: var(--body-font-color);
+    text-decoration: none;
+    opacity: 0.7;
+    transition: opacity 0.2s, color 0.2s;
+    display: inline-block;
+    padding: 0.15rem 0.3rem;
+    line-height: 1.4;
+
+    &:hover {
+      opacity: 1;
+      color: var(--color-link);
+    }
+  }
+
+  // ============================================
+  // H2 一级目录 — 加粗、有左侧色条标记
+  // ============================================
+  & > nav > ul > li.toc-level-2 {
+    margin: 0.5rem 0 0.15rem;
+
+    & > a {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--body-font-color);
+      opacity: 1;
+      padding-left: 10px;
+      border-left: 3px solid #3b82f6;
+      border-radius: 0 3px 3px 0;
+    }
+
+    & > ul {
+      margin-top: 2px;
+    }
+  }
+
+  // ============================================
+  // H3 二级目录 — 中等粗细、浅缩进
+  // ============================================
+  .toc-level-3 {
+    & > a {
+      font-weight: 500;
+      font-size: 0.85rem;
+      padding-left: 2px;
+    }
+  }
+
+  .toc-level-3 > ul {
+    padding-left: 14px;
+    margin-left: 4px;
+    border-left: 2px solid var(--gray-300);
+  }
+
+  // ============================================
+  // H4 三级目录 — 更小字号、虚线缩进
+  // ============================================
+  .toc-level-4 {
+    & > a {
+      font-weight: 400;
+      font-size: 0.8rem;
+      opacity: 0.6;
+      padding-left: 4px;
+    }
+  }
+
+  .toc-level-4 > ul {
+    padding-left: 16px;
+    margin-left: 5px;
+    border-left: 1px dashed var(--gray-400);
+  }
+
+  // ============================================
+  // H3/H4 容器缩进
+  // ============================================
+  .toc-level-2 > ul {
+    padding-left: 4px;
+  }
+
+  .toc-level-3 {
+    margin: 0.05rem 0;
+  }
+
+  .toc-level-4 {
+    margin: 0.02rem 0;
+  }
+
+  // ============================================
+  // 折叠箭头
+  // ============================================
+  .toc-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    font-size: 10px;
+    cursor: pointer;
+    user-select: none;
+    color: var(--gray-400);
+    margin-right: 1px;
+    border-radius: 3px;
+    transition: color 0.2s, background 0.2s;
+    vertical-align: middle;
+    flex-shrink: 0;
+
+    &:hover {
+      color: var(--body-font-color);
+      background: var(--gray-100);
+    }
+  }
+
+  // ============================================
+  // 折叠状态
+  // ============================================
+  .toc-collapsed > ul {
+    display: none;
+  }
+
+  .toc-collapsed > .toc-toggle {
+    color: var(--gray-400);
+  }
+
+  // ============================================
+  // 高亮当前可见的 heading（可选）
+  // ============================================
+  a.toc-active {
+    color: #3b82f6;
+    opacity: 1;
+  }
+}

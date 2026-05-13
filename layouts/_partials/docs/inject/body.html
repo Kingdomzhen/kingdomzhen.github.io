@@ -1,0 +1,87 @@
+<div id="reading-progress"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0H9F1nR8wEk1b2T6iZvT2R4eml3jVmFzjWMXjJ4" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Kuah8HXQ0n8IGXlnLv" crossorigin="anonymous"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "$", right: "$", display: false},
+        {left: "\\[", right: "\\]", display: true},
+        {left: "\\(", right: "\\)", display: false}
+      ],
+      throwOnError: false
+    });
+  });
+</script>
+<script>
+  (function() {
+    var html = document.documentElement;
+
+    // 主题定义：data-theme 值 → { emoji, label }
+    var themes = [
+      { key: 'auto', emoji: '🌗', label: '自动' },
+      { key: 'light', emoji: '☀️', label: '亮色' },
+      { key: 'sepia', emoji: '📜', label: '暖色' },
+      { key: 'dark',  emoji: '🌙', label: '暗色' },
+      { key: 'forest', emoji: '🌲', label: '森林' },
+      { key: 'ocean',  emoji: '🌊', label: '深海' }
+    ];
+
+    // 读取保存的主题
+    var saved = localStorage.getItem('book-theme-pref');
+    var currentIndex = 0; // 默认 auto
+    if (saved) {
+      for (var i = 0; i < themes.length; i++) {
+        if (themes[i].key === saved) {
+          currentIndex = i;
+          break;
+        }
+      }
+    }
+    if (currentIndex > 0) {
+      html.setAttribute('data-theme', themes[currentIndex].key);
+    }
+
+    // 更新按钮显示
+    function updateButtons() {
+      var t = themes[currentIndex];
+      var icons = document.querySelectorAll('.theme-icon');
+      var labels = document.querySelectorAll('.theme-label');
+      icons.forEach(function(el) { el.textContent = t.emoji; });
+      labels.forEach(function(el) { el.textContent = t.label; });
+    }
+    updateButtons();
+
+    // 点击切换：循环到下一个主题
+    var toggles = document.querySelectorAll('.theme-toggle');
+    toggles.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        currentIndex = (currentIndex + 1) % themes.length;
+        var t = themes[currentIndex];
+        if (currentIndex === 0) {
+          html.removeAttribute('data-theme');
+          localStorage.removeItem('book-theme-pref');
+        } else {
+          html.setAttribute('data-theme', t.key);
+          localStorage.setItem('book-theme-pref', t.key);
+        }
+        updateButtons();
+      });
+    });
+
+    // 阅读进度条
+    var bar = document.getElementById('reading-progress');
+    function updateProgress() {
+      if (!bar) return;
+      var scrollTop = window.scrollY || html.scrollTop;
+      var docHeight = html.scrollHeight - window.innerHeight;
+      if (docHeight > 0) {
+        bar.style.width = (scrollTop / docHeight * 100) + '%';
+      }
+    }
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    updateProgress();
+  })();
+</script>
