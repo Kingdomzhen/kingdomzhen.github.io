@@ -15,6 +15,7 @@ paginate = 8
   BookDateFormat = '2006-01-02'
   BookSearch = true
   BookLogo = 'images/icci.jpg'
+  BookFavicon = 'images/icci.jpg'
 
 [markup]
   [markup.tableOfContents]
