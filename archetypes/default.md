@@ -1,5 +1,10 @@
 +++
-date = '{{ .Date }}'
+date = '{{ .Date | time.Format "2006-01-02" }}'
 draft = true
-title = '{{ replace .File.ContentBaseName "-" " " | title }}'
+title = '{{ replace .File.ContentBaseName "-" " " }}'
+description = ''
+tags = []
+categories = []
+weight = 0
+# menu = ''
 +++

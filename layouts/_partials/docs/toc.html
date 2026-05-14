@@ -1,49 +1,57 @@
 {{ partial "docs/inject/toc-before" . }}
-<nav id="TableOfContents">
-  {{ .TableOfContents }}
-</nav>
+{{ .TableOfContents }}
 {{ partial "docs/inject/toc-after" . }}
 
 <script>
   (function() {
-    var toc = document.getElementById('TableOfContents');
+    var scripts = document.getElementsByTagName('script');
+    var me = scripts[scripts.length - 1];
+    var toc = me.parentElement.querySelector('nav');
     if (!toc) return;
 
-    // 递归标记层级并添加折叠按钮
     function processLevel(ul, depth) {
       if (!ul) return;
       var lis = ul.children;
       for (var i = 0; i < lis.length; i++) {
         var li = lis[i];
         if (li.tagName !== 'LI') continue;
+
+        var childUl = null;
+        for (var j = 0; j < li.children.length; j++) {
+          if (li.children[j].tagName === 'UL') {
+            childUl = li.children[j];
+            break;
+          }
+        }
+
+        var link = li.querySelector('a');
+
+        // 无链接的包装器 <li>，穿透处理
+        if (!link && childUl) {
+          processLevel(childUl, depth);
+          continue;
+        }
+
+        if (!link) continue;
+
         li.classList.add('toc-level-' + depth);
 
-        var childUl = li.querySelector(':scope > ul');
         if (childUl) {
+          li.classList.add('toc-parent');
+
           var toggle = document.createElement('span');
           toggle.className = 'toc-toggle';
-          toggle.innerHTML = '▾';
-          toggle.title = '展开/折叠';
-
-          var link = li.querySelector(':scope > a');
-          if (link) {
-            link.parentNode.insertBefore(toggle, link);
-          } else {
-            li.insertBefore(toggle, li.firstChild);
-          }
+          li.insertBefore(toggle, li.firstChild);
 
           toggle.addEventListener('click', function(e) {
             e.stopPropagation();
             e.preventDefault();
             var parentLi = this.parentNode;
-            var isOpen = parentLi.classList.toggle('toc-collapsed');
-            this.innerHTML = isOpen ? '▸' : '▾';
+            parentLi.classList.toggle('toc-collapsed');
           });
 
-          // H3 及更深层级默认折叠
-          if (depth >= 3) {
+          if (depth >= 4) {
             li.classList.add('toc-collapsed');
-            toggle.innerHTML = '▸';
           }
 
           processLevel(childUl, depth + 1);
@@ -51,7 +59,39 @@
       }
     }
 
-    var topUl = toc.querySelector(':scope > ul');
+    var topUl = toc.querySelector('ul');
     if (topUl) processLevel(topUl, 2);
+
+    // ========================================
+    // 滚动追踪：高亮当前可见标题
+    // ========================================
+    var links = toc.querySelectorAll('a[href^="#"]');
+    if (!links.length) return;
+
+    var headings = [];
+    links.forEach(function(a) {
+      var id = a.getAttribute('href').slice(1);
+      var el = document.getElementById(id);
+      if (el) headings.push({ link: a, el: el });
+    });
+
+    if (!headings.length) return;
+
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        var link = null;
+        for (var k = 0; k < headings.length; k++) {
+          if (headings[k].el === e.target) { link = headings[k].link; break; }
+        }
+        if (!link) return;
+        if (e.isIntersecting) {
+          link.classList.add('toc-active');
+        } else {
+          link.classList.remove('toc-active');
+        }
+      });
+    }, { rootMargin: '-20% 0px -60% 0px', threshold: 0 });
+
+    headings.forEach(function(h) { observer.observe(h.el); });
   })();
 </script>

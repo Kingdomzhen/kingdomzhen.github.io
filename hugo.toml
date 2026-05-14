@@ -14,10 +14,11 @@ paginate = 8
   BookSection = '*'
   BookDateFormat = '2006-01-02'
   BookSearch = true
+  BookLogo = 'images/icci.jpg'
 
 [markup]
   [markup.tableOfContents]
-    startLevel = 2
+    startLevel = 1
     endLevel = 4
 
 [markup.goldmark.renderer]
