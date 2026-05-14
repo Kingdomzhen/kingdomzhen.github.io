@@ -185,6 +185,11 @@ html[data-theme="ocean"] {
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
     }
   }
+
+  figcaption {
+    margin-top: 0.75rem;
+    font-size: 0.95rem;
+  }
 }
 
 // 所有 Markdown 图片也自动响应式
@@ -371,13 +376,13 @@ html[data-theme="ocean"] {
 }
 
 // ============================================
-// 三级折叠目录
+// 树形目录导航 — 文件夹树样式
 // ============================================
 .book-toc {
-  font-size: 0.875rem;
+  font-size: 0.84rem;
 
   nav {
-    padding-top: 0.5rem;
+    padding-top: 0.25rem;
   }
 
   ul {
@@ -388,137 +393,226 @@ html[data-theme="ocean"] {
 
   li {
     margin: 0;
-    padding: 0;
+    padding: 2px 0;
     position: relative;
   }
 
   a {
     color: var(--body-font-color);
     text-decoration: none;
-    opacity: 0.7;
-    transition: opacity 0.2s, color 0.2s;
-    display: inline-block;
-    padding: 0.15rem 0.3rem;
-    line-height: 1.4;
+    opacity: 0.72;
+    transition: opacity 0.18s, color 0.18s, padding-left 0.2s;
+    display: inline;
+    line-height: 1.55;
+    vertical-align: middle;
+    padding: 2px 6px 2px 24px;  // 24px 左侧统一预留 toggle 位
+    border-radius: 0 4px 4px 0;
 
     &:hover {
       opacity: 1;
       color: var(--color-link);
-    }
-  }
-
-  // ============================================
-  // H2 一级目录 — 加粗、有左侧色条标记
-  // ============================================
-  & > nav > ul > li.toc-level-2 {
-    margin: 0.5rem 0 0.15rem;
-
-    & > a {
-      font-weight: 700;
-      font-size: 0.95rem;
-      color: var(--body-font-color);
-      opacity: 1;
-      padding-left: 10px;
-      border-left: 3px solid #3b82f6;
-      border-radius: 0 3px 3px 0;
-    }
-
-    & > ul {
-      margin-top: 2px;
-    }
-  }
-
-  // ============================================
-  // H3 二级目录 — 中等粗细、浅缩进
-  // ============================================
-  .toc-level-3 {
-    & > a {
-      font-weight: 500;
-      font-size: 0.85rem;
-      padding-left: 2px;
-    }
-  }
-
-  .toc-level-3 > ul {
-    padding-left: 14px;
-    margin-left: 4px;
-    border-left: 2px solid var(--gray-300);
-  }
-
-  // ============================================
-  // H4 三级目录 — 更小字号、虚线缩进
-  // ============================================
-  .toc-level-4 {
-    & > a {
-      font-weight: 400;
-      font-size: 0.8rem;
-      opacity: 0.6;
-      padding-left: 4px;
-    }
-  }
-
-  .toc-level-4 > ul {
-    padding-left: 16px;
-    margin-left: 5px;
-    border-left: 1px dashed var(--gray-400);
-  }
-
-  // ============================================
-  // H3/H4 容器缩进
-  // ============================================
-  .toc-level-2 > ul {
-    padding-left: 4px;
-  }
-
-  .toc-level-3 {
-    margin: 0.05rem 0;
-  }
-
-  .toc-level-4 {
-    margin: 0.02rem 0;
-  }
-
-  // ============================================
-  // 折叠箭头
-  // ============================================
-  .toc-toggle {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 18px;
-    height: 18px;
-    font-size: 10px;
-    cursor: pointer;
-    user-select: none;
-    color: var(--gray-400);
-    margin-right: 1px;
-    border-radius: 3px;
-    transition: color 0.2s, background 0.2s;
-    vertical-align: middle;
-    flex-shrink: 0;
-
-    &:hover {
-      color: var(--body-font-color);
       background: var(--gray-100);
     }
   }
 
   // ============================================
-  // 折叠状态
+  // 树形连接线 — 嵌套 UL 左侧竖线 + 横向分支
   // ============================================
+  .toc-parent > ul {
+    border-left: 1px solid var(--gray-200);
+    margin-left: 0.5em;
+    padding-left: 0.5em;
+    overflow: hidden;
+    transition: max-height 0.28s ease, opacity 0.22s ease, border-color 0.2s;
+    max-height: 800px;
+    opacity: 1;
+    position: relative;
+
+    // 每个子 LI 的横向分支线 — ──
+    > li::before {
+      content: '';
+      position: absolute;
+      left: -0.5em;
+      top: 0.9em;
+      width: 0.35em;
+      height: 0;
+      border-top: 1px solid var(--gray-200);
+      transition: border-color 0.2s;
+    }
+
+    // 最后一项截断竖线 — 用背景色遮住底部
+    > li:last-child::after {
+      content: '';
+      position: absolute;
+      left: calc(-0.5em - 1px);
+      top: 0.9em;
+      bottom: -10px;
+      width: 2px;
+      background: var(--body-background);
+    }
+  }
+
+  // ============================================
+  // CSS 折叠箭头 — 绝对定位 + 大点击区域
+  // ============================================
+  .toc-toggle {
+    position: absolute;
+    left: 0;
+    top: 0.35em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+    user-select: none;
+    color: var(--gray-500);
+    flex-shrink: 0;
+    border-radius: 5px;
+    transition: color 0.18s, background 0.18s, transform 0.15s;
+
+    // 扩大点击热区到 28x28（不可见）
+    &::before {
+      content: '';
+      position: absolute;
+      top: -4px;
+      left: -4px;
+      right: -4px;
+      bottom: -4px;
+    }
+
+    &:hover {
+      color: var(--color-link);
+      background: var(--gray-100);
+      transform: scale(1.12);
+    }
+
+    // 展开状态 ▼
+    &::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 0;
+      border-left: 4.5px solid transparent;
+      border-right: 4.5px solid transparent;
+      border-top: 5.5px solid currentColor;
+      transition: transform 0.22s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+  }
+
+  // 折叠状态 ▶
+  .toc-collapsed > .toc-toggle::after {
+    transform: rotate(-90deg);
+  }
+
   .toc-collapsed > ul {
-    display: none;
-  }
-
-  .toc-collapsed > .toc-toggle {
-    color: var(--gray-400);
+    max-height: 0;
+    opacity: 0;
   }
 
   // ============================================
-  // 高亮当前可见的 heading（可选）
+  // H1 顶级 — 最深色
+  // ============================================
+  nav > ul > li.toc-level-1 {
+    margin: 0.3rem 0 0.4rem;
+
+    & > a {
+      font-weight: 800;
+      font-size: 0.95rem;
+      opacity: 1;
+      padding-left: 0;
+      border-radius: 0;
+
+      &:hover {
+        background: none;
+      }
+    }
+
+    & > ul {
+      margin-top: 4px;
+    }
+  }
+
+  // ============================================
+  // H2 — 蓝色左边框 + 加粗
+  // ============================================
+  nav > ul > li.toc-level-2 {
+    margin: 0.4rem 0 0.05rem;
+
+    & > a {
+      font-weight: 700;
+      font-size: 0.88rem;
+      opacity: 0.92;
+      padding-left: 8px;
+      border-left: 3px solid #3b82f6;
+      border-radius: 0 4px 4px 0;
+
+      &:hover {
+        border-left-color: #2563eb;
+        padding-left: 12px;
+      }
+    }
+
+    & > ul {
+      margin-top: 3px;
+    }
+  }
+
+  // ============================================
+  // H3 — 青蓝色左边框
+  // ============================================
+  li.toc-level-3 {
+    & > a {
+      font-weight: 550;
+      font-size: 0.81rem;
+      opacity: 0.82;
+      padding-left: 8px;
+      border-left: 2px solid #7b9fc8;
+      border-radius: 0 3px 3px 0;
+
+      &:hover {
+        border-left-color: #5b8fbe;
+        padding-left: 12px;
+        background: var(--gray-100);
+      }
+    }
+
+    & > ul {
+      border-left-color: #a0b8d0;
+    }
+  }
+
+  // ============================================
+  // H4 — 虚线灰色
+  // ============================================
+  li.toc-level-4 {
+    & > a {
+      font-weight: 400;
+      font-size: 0.77rem;
+      opacity: 0.62;
+      padding-left: 8px;
+      border-left: 1.5px dashed var(--gray-400);
+      border-radius: 0 3px 3px 0;
+
+      &:hover {
+        border-left-color: var(--gray-500);
+        padding-left: 12px;
+        opacity: 0.85;
+      }
+    }
+  }
+
+  // ============================================
+  // 当前激活项（滚动追踪）
   // ============================================
   a.toc-active {
-    color: #3b82f6;
-    opacity: 1;
+    color: #3b82f6 !important;
+    opacity: 1 !important;
+    font-weight: 600 !important;
+    background: rgba(59, 130, 246, 0.08);
+
+    &:hover {
+      background: rgba(59, 130, 246, 0.14);
+    }
   }
 }
