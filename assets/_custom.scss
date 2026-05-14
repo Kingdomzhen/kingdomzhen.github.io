@@ -393,25 +393,68 @@ html[data-theme="ocean"] {
 
   li {
     margin: 0;
-    padding: 2px 0;
+    padding: 2px 0 2px 22px;
     position: relative;
   }
 
   a {
+    position: relative;
     color: var(--body-font-color);
     text-decoration: none;
     opacity: 0.72;
-    transition: opacity 0.18s, color 0.18s, padding-left 0.2s;
-    display: inline;
+    transition: opacity 0.18s, color 0.18s;
+    display: inline-block;
     line-height: 1.55;
-    vertical-align: middle;
-    padding: 2px 6px 2px 24px;  // 24px 左侧统一预留 toggle 位
+    padding: 2px 6px 2px 0;
     border-radius: 0 4px 4px 0;
 
     &:hover {
       opacity: 1;
       color: var(--color-link);
       background: var(--gray-100);
+    }
+  }
+
+  // ============================================
+  // 目录标题
+  // ============================================
+  .toc-header {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--gray-500);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.35rem;
+    padding: 0 2px;
+  }
+
+  // ============================================
+  // 全局折叠/展开工具栏
+  // ============================================
+  .toc-toolbar {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 0.5rem;
+    padding: 0 2px;
+
+    button {
+      flex: 1;
+      padding: 3px 6px;
+      font-size: 0.68rem;
+      font-weight: 500;
+      color: var(--gray-500);
+      background: var(--gray-100);
+      border: 1px solid var(--gray-200);
+      border-radius: 4px;
+      cursor: pointer;
+      transition: color 0.15s, background 0.15s, border-color 0.15s;
+      white-space: nowrap;
+
+      &:hover {
+        color: var(--body-font-color);
+        background: var(--gray-200);
+        border-color: var(--gray-500);
+      }
     }
   }
 
@@ -453,49 +496,49 @@ html[data-theme="ocean"] {
   }
 
   // ============================================
-  // CSS 折叠箭头 — 绝对定位 + 大点击区域
+  // CSS 折叠箭头 — 绝对定位在 li 内
   // ============================================
   .toc-toggle {
     position: absolute;
-    left: 0;
-    top: 0.35em;
+    left: 3px;
+    top: 50%;
+    transform: translateY(-50%);
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 22px;
-    height: 22px;
+    width: 20px;
+    height: 20px;
     cursor: pointer;
     user-select: none;
     color: var(--gray-500);
-    flex-shrink: 0;
-    border-radius: 5px;
-    transition: color 0.18s, background 0.18s, transform 0.15s;
+    border-radius: 4px;
+    transition: color 0.18s, background 0.18s;
+    z-index: 1;
 
-    // 扩大点击热区到 28x28（不可见）
+    // 扩大点击热区到 28x28
     &::before {
       content: '';
       position: absolute;
-      top: -4px;
-      left: -4px;
-      right: -4px;
-      bottom: -4px;
+      top: -5px;
+      left: -5px;
+      right: -5px;
+      bottom: -5px;
     }
 
     &:hover {
       color: var(--color-link);
       background: var(--gray-100);
-      transform: scale(1.12);
     }
 
-    // 展开状态 ▼
+    // 展开 ▼
     &::after {
       content: '';
       display: block;
       width: 0;
       height: 0;
-      border-left: 4.5px solid transparent;
-      border-right: 4.5px solid transparent;
-      border-top: 5.5px solid currentColor;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-top: 5px solid currentColor;
       transition: transform 0.22s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
   }
