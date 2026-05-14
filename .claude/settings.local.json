@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(hugo server *)",
+      "Bash(start *)",
+      "Bash(hugo --printI18nWarnings)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "Bash(git config *)",
+      "Bash(curl -I https://github.com --connect-timeout 10)"
+    ]
+  }
+}
