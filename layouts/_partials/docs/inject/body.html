@@ -68,8 +68,35 @@
           localStorage.setItem('book-theme-pref', t.key);
         }
         updateButtons();
+        syncGiscusTheme();
       });
     });
+
+    // 同步 giscus 主题
+    function syncGiscusTheme() {
+      var iframe = document.querySelector('iframe.giscus-frame');
+      if (!iframe) return;
+      var giscusTheme = 'light';
+      var dt = html.getAttribute('data-theme');
+      if (!dt || dt === 'auto') {
+        giscusTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      } else if (dt === 'dark' || dt === 'forest' || dt === 'ocean') {
+        giscusTheme = 'dark';
+      }
+      iframe.contentWindow.postMessage(
+        { giscus: { setConfig: { theme: giscusTheme } } },
+        'https://giscus.app'
+      );
+    }
+
+    // giscus 加载完成后同步主题
+    var _gsAttempts = 0;
+    var _gsTimer = setInterval(function() {
+      _gsAttempts++;
+      var iframe = document.querySelector('iframe.giscus-frame');
+      if (iframe) { syncGiscusTheme(); clearInterval(_gsTimer); }
+      if (_gsAttempts > 30) clearInterval(_gsTimer);
+    }, 1000);
 
     // 阅读进度条
     var bar = document.getElementById('reading-progress');
