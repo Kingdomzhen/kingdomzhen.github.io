@@ -9,7 +9,7 @@ enableEmoji = true
 paginate = 8
 
 [services.googleAnalytics]
-  id = "G-SXT0DC8SZ7"
+  id = "G-EJS9LXEDSM"
 
 [params]
   BookTheme = 'auto'
