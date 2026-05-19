@@ -8,7 +8,8 @@ buildDrafts = false
 enableEmoji = true
 paginate = 8
 
-googleAnalytics = "G-SXT0DC8SZ7"
+[services.googleAnalytics]
+  id = "G-SXT0DC8SZ7"
 
 [params]
   BookTheme = 'auto'
