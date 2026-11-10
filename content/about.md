@@ -22,6 +22,8 @@ permalink: /about/
 
 **个人信条：** 道法自然
 
+{{< blog-heatmap >}}
+
 ---
 
 
