@@ -6,6 +6,8 @@ date: '2026-11-01T00:00:00Z'
 description: 一台 iPhone 15 Pro 暑假以来被我摔了五次，从换电池到换屏幕，最后自己在书桌上把它修好了
 keywords: blog, page
 title: 修了拆，拆了修的 iPhone 15 Pro
+aliases:
+- /life/odd/2026-11-01-blog-修了拆拆了修的iphone15pro/
 ---
 ## 修了拆，拆了修的 iPhone 15 Pro
 
