@@ -1,0 +1,22 @@
+{{ if and .IsPage (not .IsHome) (not .Params.layout) }}
+  {{- with .Title }}
+  <header class="book-post-header">
+    <h1 class="book-post-title">{{ . }}</h1>
+    <div class="book-post-meta">
+      {{- with $.Date }}
+      <span class="book-post-date">{{ partial "docs/date" (dict "Date" . "Format" $.Site.Params.BookDateFormat) }}</span>
+      {{- end }}
+      {{- range $taxonomy, $_ := $.Site.Taxonomies }}
+        {{- with $.GetTerms $taxonomy }}
+      <span class="book-post-terms">
+        {{- range $n, $term := . }}{{ if $n }}· {{ end }}<a href="{{ $term.RelPermalink }}">{{ $term.Title }}</a>{{ end }}
+      </span>
+        {{- end }}
+      {{- end }}
+    </div>
+    {{- with $.Description }}
+    <p class="book-post-lead">{{ . }}</p>
+    {{- end }}
+  </header>
+  {{- end }}
+{{ end }}

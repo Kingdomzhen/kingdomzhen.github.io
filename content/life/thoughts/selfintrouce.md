@@ -20,7 +20,9 @@ topmost: true
 
 ## 微信打赏作者 / Wechat
 
-<img style="width:auto;border:auto solid lightgrey;" src="/images/receipt-code-wechat.jpeg" alt="wechat receipt code" />  
+<div class="img-center"><img style="width:auto;border:auto solid lightgrey;" src="/images/receipt-code-wechat.jpeg" alt="wechat receipt code" />
+<p style="text-align:center;font-size:0.85em;color:#888;margin-top:6px;">微信赞赏码，扫码请作者喝杯咖啡</p>
+</div>
 没有中间商，直接鞭策作者创作~
 
 ### 作者声明
